@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Physics.Raycast(controller.transform.position, controller.transform.forward, out RaycastHit raycastHit)) {
+            if (Physics.Raycast(camera.transform.position, camera.transform.forward, out RaycastHit raycastHit)) {
                 debugHitPointTransform.position = raycastHit.point;
                 hookshotPosition = raycastHit.point;
                 state = State.HookshotFlyingPlayer;
@@ -116,10 +116,5 @@ public class PlayerMovement : MonoBehaviour
     private bool TestInputDownHookshot()
     {
         return Input.GetKeyDown(KeyCode.E);
-    }
-
-    private bool TestInputJump()
-    {
-        return Input.GetKeyDown(KeyCode.Space);
     }
 }
